@@ -1,0 +1,52 @@
+{
+  "stage": "DigitalTwin_V3_Multiphysics",
+  "authoritative_inputs": {
+    "DigitalTwin_V1_Models": "4287974d2792a5430c3bf64370d147d18c69d37280268e56281ecccc2c5c8570",
+    "P4_DigitalTwin_Predictions": "a948ef046b5f4fc48f344ed2d507ba5532ffb379373507d8dbd250a4929dee8a",
+    "P4_Personalized_Test_Metrics": "f7939cc5ada54563709032e20e61362bee81557c0886792500087abfbe36ddc2",
+    "P4_Personalized_Predictions": "fec43639423d88420d7047ae6236a21bf3821a4732d0ad5376e1798c0de4fbbc",
+    "DigitalTwin_Implementation_Package": "e0557fb7e959a673ee6ff783bf03e4fa4ef5119b52604860900d6f479368a196",
+    "Patient4_Hemodynamics": "7d0ccd9a155961960870a06561a6e911106c414388fa14216c75a12f1a9ec7fd",
+    "Patient4_SolidMechanics": "896544d3f15738c77f9230d704ba0f0dcc6a62e6be270984a60f526056d7d3da"
+  },
+  "V1_freeze_hash": null,
+  "V2_base_freeze_hash": "1241f862c1a0f3564db92a6de8c1c9942e76de79351637d1702c9ae2755550f9",
+  "primary_personalization_fraction": 0.05,
+  "sensitivity_personalization_fraction": 0.1,
+  "OOD_features": [
+    "s_norm",
+    "dist_nearest_end",
+    "radial_norm",
+    "local_radius_over_median",
+    "local_radius_gradient",
+    "curvature_radius",
+    "curvature_side",
+    "tangent_alignment_main_axis"
+  ],
+  "OOD_k_neighbors": 10,
+  "uncertainty": "worst-patient LOPO 90th percentile transformed residual radius",
+  "pareto_channels": {
+    "high_shear": [
+      "peak_WSS_magnitude_Pa",
+      "VM_cycle_max_Pa"
+    ],
+    "residence_oscillation": [
+      "RRT_1_per_Pa",
+      "VM_cycle_max_Pa"
+    ]
+  },
+  "co_burden_definition": "min(patient-balanced development ECDF percentile of hemodynamic objective, patient-balanced development ECDF percentile of mechanical objective)",
+  "coordinate_checks": {
+    "V1pred_vs_V2pred": true,
+    "V1pred_vs_P4features": true,
+    "V1pred_vs_hemo": true,
+    "V1pred_vs_solid": true
+  },
+  "OOD_definition": "median of three fold-specific percentiles; each P4 score uses the same two-patient reference pair as the corresponding P1/P2/P3 LOPO held-out calibration",
+  "global_anatomy_OOD_note": "descriptive development envelope only because n=3 anatomies is insufficient for reliable density estimation",
+  "pareto_outputs": [
+    "development-referenced co-burden=min(percentiles)",
+    "exact 2D nondominated front",
+    "continuous dominance score"
+  ]
+}

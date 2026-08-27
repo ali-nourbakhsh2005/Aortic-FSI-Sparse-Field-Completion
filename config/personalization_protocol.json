@@ -1,0 +1,30 @@
+{
+  "base_freeze_hash": "1241f862c1a0f3564db92a6de8c1c9942e76de79351637d1702c9ae2755550f9",
+  "protocol": "Sparse representative-anchor personalization: affine correction in transformed target space + KNN residual correction in local geometry feature space",
+  "local_features": [
+    "s_norm",
+    "dist_nearest_end",
+    "radial_norm",
+    "local_radius_over_median",
+    "local_radius_gradient",
+    "curvature_radius",
+    "curvature_side",
+    "tangent_alignment_main_axis"
+  ],
+  "calibration_fractions": [
+    0.01,
+    0.02,
+    0.05,
+    0.1
+  ],
+  "anchor_selection": "MiniBatchKMeans representatives in standardized local-geometry feature space",
+  "knn_neighbors": 10,
+  "development_patients": [
+    1,
+    2,
+    3
+  ],
+  "personalization_case": 4,
+  "note": "P4 zero-shot test was already frozen/evaluated in V1. V2 is a secondary patient-specific calibration experiment, not an unseen zero-shot test.",
+  "frozen_utc": "2026-08-21T20:59:15.414407+00:00"
+}

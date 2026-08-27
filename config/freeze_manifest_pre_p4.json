@@ -1,0 +1,140 @@
+{
+  "project": "Aortic FSI Surrogate Digital Twin V1",
+  "training_patients": [
+    1,
+    2,
+    3
+  ],
+  "locked_test_patient": 4,
+  "freeze_utc": "2026-08-21T20:57:20.646884+00:00",
+  "feature_policy": "geometry-only, patient-normalized PCA/centerline/radius/curvature features; P4 targets excluded from model selection",
+  "features": [
+    "s_norm",
+    "dist_nearest_end",
+    "radial_norm",
+    "local_radius_over_length",
+    "local_radius_over_median",
+    "local_radius_over_large_end",
+    "local_radius_gradient",
+    "curvature_1_per_mm",
+    "curvature_radius",
+    "curvature_side",
+    "tangent_alignment_main_axis",
+    "centerline_length_mm",
+    "mean_radius_over_length",
+    "max_radius_over_length",
+    "global_expansion_ratio",
+    "end_radius_ratio",
+    "tortuosity",
+    "mean_curvature_times_length",
+    "max_curvature_times_length",
+    "bbox_ratio_2_1",
+    "bbox_ratio_3_1"
+  ],
+  "target_transforms": {
+    "TAWSS_vector_Pa": "log1p",
+    "OSI": "identity",
+    "RRT_1_per_Pa": "log1p",
+    "peak_WSS_magnitude_Pa": "log1p",
+    "VM_cycle_max_Pa": "log",
+    "VM_stress_amplitude_Pa": "log",
+    "VM_temporal_mean_Pa": "log"
+  },
+  "candidates": {
+    "LGB_smooth": {
+      "n_estimators": 180,
+      "learning_rate": 0.04,
+      "num_leaves": 15,
+      "min_child_samples": 100,
+      "subsample": 0.9,
+      "colsample_bytree": 0.9,
+      "reg_lambda": 1.0,
+      "random_state": 20260821,
+      "n_jobs": -1,
+      "verbosity": -1
+    },
+    "LGB_mid": {
+      "n_estimators": 220,
+      "learning_rate": 0.04,
+      "num_leaves": 31,
+      "min_child_samples": 50,
+      "subsample": 0.9,
+      "colsample_bytree": 0.9,
+      "reg_lambda": 1.0,
+      "random_state": 20260821,
+      "n_jobs": -1,
+      "verbosity": -1
+    },
+    "LGB_local": {
+      "n_estimators": 250,
+      "learning_rate": 0.035,
+      "num_leaves": 45,
+      "min_child_samples": 25,
+      "subsample": 0.9,
+      "colsample_bytree": 0.85,
+      "reg_lambda": 2.0,
+      "random_state": 20260821,
+      "n_jobs": -1,
+      "verbosity": -1
+    }
+  },
+  "selected_models": {
+    "TAWSS_vector_Pa": "LGB_local",
+    "OSI": "LGB_smooth",
+    "RRT_1_per_Pa": "LGB_local",
+    "peak_WSS_magnitude_Pa": "LGB_local",
+    "VM_cycle_max_Pa": "LGB_local",
+    "VM_stress_amplitude_Pa": "LGB_local",
+    "VM_temporal_mean_Pa": "LGB_local"
+  },
+  "q90_development_residual_transformed": {
+    "TAWSS_vector_Pa": 0.8417423175173868,
+    "OSI": 0.23079468142742085,
+    "RRT_1_per_Pa": 1.2262099430184248,
+    "peak_WSS_magnitude_Pa": 1.2450776942843786,
+    "VM_cycle_max_Pa": 1.4381318275177302,
+    "VM_stress_amplitude_Pa": 1.4381318436651291,
+    "VM_temporal_mean_Pa": 1.3423551564139604
+  },
+  "source_sha256": {
+    "P1_hemo": "de96441ab19ac1a8a0c8530f940dd6b47033bc9fbe6072077d8e9de2f23cd23f",
+    "P1_solid": "a5bc7f5f4564492688635701d4fda0057bbf321804c059613a936b1c7148cdbd",
+    "P2_hemo": "ef32c176cc569d5fd3e2ecb4a1b1e8cf417e695d7ee5fb84d7d2a165f897aa15",
+    "P2_solid": "f74ea371ca8a24e15e1f94c63213a0020f4212b2d139177badf9494ea00b7c4e",
+    "P3_hemo": "f149306b97eae7ebbc373df3c6e15d6e0fb4b3ddc4101e9347892e626b37aece",
+    "P3_solid": "7d5e2b60cf7385679503d94921a14bb700b30f07ece7dc297173a1388a44fcea",
+    "P4_hemo": "7d0ccd9a155961960870a06561a6e911106c414388fa14216c75a12f1a9ec7fd",
+    "P4_solid": "896544d3f15738c77f9230d704ba0f0dcc6a62e6be270984a60f526056d7d3da"
+  },
+  "geometry_metadata": {
+    "1": {
+      "centerline_length_mm": 128.09268384245757,
+      "large_end_radius_proxy_mm": 14.081157276437422,
+      "small_end_radius_proxy_mm": 11.267137363733532,
+      "max_radius_proxy_mm": 21.716524567954036,
+      "tortuosity": 1.2256684856250093
+    },
+    "2": {
+      "centerline_length_mm": 96.20910243653454,
+      "large_end_radius_proxy_mm": 16.639682522874338,
+      "small_end_radius_proxy_mm": 8.100129964177412,
+      "max_radius_proxy_mm": 28.739480824485437,
+      "tortuosity": 1.2561867405048917
+    },
+    "3": {
+      "centerline_length_mm": 93.68696329490339,
+      "large_end_radius_proxy_mm": 13.076686386822978,
+      "small_end_radius_proxy_mm": 13.025586861371373,
+      "max_radius_proxy_mm": 17.26156273188889,
+      "tortuosity": 1.13802715687092
+    },
+    "4": {
+      "centerline_length_mm": 85.39850290570003,
+      "large_end_radius_proxy_mm": 17.998368574423004,
+      "small_end_radius_proxy_mm": 13.941814844317914,
+      "max_radius_proxy_mm": 20.46188121762811,
+      "tortuosity": 1.3456160919402544
+    }
+  },
+  "seed": 20260821
+}
