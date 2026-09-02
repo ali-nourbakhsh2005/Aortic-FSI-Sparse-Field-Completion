@@ -1,0 +1,10 @@
+stage,anatomy_or_scope,median_seconds,p10_seconds,p90_seconds,provenance,notes
+COMSOL_FSI,A2,18968,,,archived_COMSOL_log,"Stored complete 0-1 s state; later attempted step beyond 1 s failed"
+COMSOL_FSI,A3,5251,,,archived_COMSOL_log,"Time-stepping completed"
+COMSOL_FSI,A4,5499,,,archived_COMSOL_log,"Time-stepping completed"
+Geometry_feature_extraction,A4_4055_nodes,0.00461,0.00459,0.00487,current_analysis_environment,"21 geometry descriptors; excludes CAD/mesh creation"
+LightGBM_zero_shot_inference,6_targets_A4_4055_nodes,0.07378,0.07005,0.08255,current_analysis_environment,"Frozen model prediction only"
+KMeans_anchor_selection,5pct_A4_4055_nodes,0.08803,0.08597,0.10024,current_analysis_environment,"Representative anchor selection only"
+Prior_sparse_adaptation,6_targets_A4_4055_nodes,0.05160,0.05081,0.05396,current_analysis_environment,"Ridge + local KNN adaptation after anchors are known"
+IDW_field_completion,6_targets_A4_4055_nodes,0.00543,0.00539,0.00553,current_analysis_environment,"Development-selected IDW settings; excludes anchor acquisition"
+RBF_field_completion,6_targets_A4_4055_nodes,1.67928,1.66004,1.73223,current_analysis_environment,"Development-selected thin-plate RBF settings; excludes anchor acquisition"

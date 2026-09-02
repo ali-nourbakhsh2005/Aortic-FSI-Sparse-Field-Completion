@@ -1,0 +1,64 @@
+﻿Column / Pattern,Unit / Type,Explanation
+x_m / y_m / z_m,m,"Inner-wall node coordinates in the earlier processed outputs, expressed in meters."
+x_mm / y_mm / z_mm,mm,Inner-wall node coordinates after standardization to millimeters.
+patient,index,Local anatomy identifier corresponding to A1–A4 / Patient 1–4 in the project files.
+TAWSS_vector_Pa,Pa,Time-Averaged Wall Shear Stress computed from the magnitude of the vector-resolved WSS over the archived first-cycle output window.
+OSI,dimensionless,Oscillatory Shear Index. In the standard physical definition its range is 0 to 0.5.
+RRT_1_per_Pa,1/Pa,Relative Residence Time. It is heavy-tailed and becomes numerically sensitive near its singular limit.
+peak_WSS_magnitude_Pa,Pa,Maximum archived WSS magnitude across the first-cycle saved output states.
+t_peak_WSS_s,s,Archived time at which the peak WSS magnitude occurs.
+mean_WSSx_Pa / y / z,Pa,Components of the time-averaged WSS vector.
+mean_WSS_vector_magnitude_Pa,Pa,Magnitude of the time-averaged WSS vector.
+VM_cycle_max_Pa,Pa,Maximum saved-state von Mises stress over the archived cycle.
+VM_cycle_min_Pa,Pa,Minimum saved-state von Mises stress over the archived cycle.
+VM_stress_range_Pa,Pa,"Von Mises stress range, defined as maximum minus minimum."
+VM_stress_amplitude_Pa,Pa,Half of the von Mises stress range. Under first-cycle unloaded initialization it became nearly equivalent to 0.5×VMmax and was therefore excluded from the primary nonredundant targets.
+VM_midrange_stress_Pa,Pa,Average of the saved-state von Mises stress maximum and minimum.
+VM_temporal_mean_Pa,Pa,Temporal mean of von Mises stress across the archived output states.
+t_VM_max_s,s,Archived time at which maximum von Mises stress occurs.
+s_norm,0–1,Normalized longitudinal position along the computational pseudo-centerline.
+dist_nearest_end,0–0.5,Minimum normalized longitudinal distance to either end of the modeled vessel.
+radial_norm,dimensionless,Radial distance from the node to the pseudo-centerline divided by the local radius proxy.
+local_radius_over_length,dimensionless,Local radius proxy divided by pseudo-centerline length.
+local_radius_over_median,dimensionless,Local radius proxy normalized by the median radius proxy of the anatomy.
+local_radius_over_large_end,dimensionless,Local radius proxy normalized by the radius proxy at the larger end of the anatomy.
+local_radius_gradient,dimensionless-ish,Longitudinal gradient of the local radius proxy along the pseudo-centerline.
+curvature_1_per_mm,1/mm,Pseudo-centerline curvature associated with the nearest longitudinal bin.
+curvature_radius,dimensionless,Product of pseudo-centerline curvature and local radius proxy.
+curvature_side,dimensionless,Relative circumferential side/orientation of the wall node with respect to the local curvature vector.
+tangent_alignment_main_axis,0–1,Absolute alignment between the local pseudo-centerline tangent and the main PCA axis.
+centerline_length_mm,mm,Length of the computational pseudo-centerline.
+mean_radius_over_length,dimensionless,Mean radius proxy divided by pseudo-centerline length.
+max_radius_over_length,dimensionless,Maximum radius proxy divided by pseudo-centerline length.
+global_expansion_ratio,dimensionless,Maximum radius proxy divided by the reference end-radius proxy.
+end_radius_ratio,dimensionless,Ratio between the radius proxies at the two ends of the model.
+tortuosity,dimensionless,Pseudo-centerline length divided by straight end-to-end distance.
+mean_curvature_times_length,dimensionless,Mean pseudo-centerline curvature multiplied by pseudo-centerline length.
+max_curvature_times_length,dimensionless,Maximum pseudo-centerline curvature multiplied by pseudo-centerline length.
+bbox_ratio_2_1 / bbox_ratio_3_1,dimensionless,Second and third bounding-box dimensions divided by the largest bounding-box dimension.
+target,text,Name of the FSI-derived target associated with a model or metric row.
+candidate,text,"Candidate model identifier used in model selection, such as LGB_smooth, LGB_mid, or LGB_local."
+val_patient / val_anatomy,index,Anatomy held out as the validation fold in leave-one-anatomy-out development.
+R2,dimensionless,Coefficient of determination evaluated on the relevant non-anchor or held-out nodes.
+MAE,target unit,Mean Absolute Error in the target's physical units unless explicitly transformed.
+RMSE,target unit,Root Mean Squared Error in the target's physical units unless explicitly transformed.
+Spearman,-1 to 1,"Spearman rank correlation, used to assess ordering/spatial-ranking fidelity."
+Top10_overlap,0–1,Overlap between the top decile of the reference field and the top decile of the predicted field.
+NMAE / NMAE_IQR,dimensionless,Mean Absolute Error normalized by the target interquartile range.
+calibration_fraction,0–1,Fraction of target-anatomy nodes used as sparse calibration anchors.
+n_calibration,count,Number of anchor/calibration nodes.
+n_evaluation,count,Number of non-anchor nodes used for evaluation.
+*_pred,target unit,Prediction produced by the corresponding model or reconstruction method.
+*_lo90 / *_hi90,target unit,"Lower and upper empirical residual-band bounds. These are development-calibrated descriptive bands, not formal population confidence intervals."
+*_personalized_1pct/2pct/5pct/10pct,target unit,V2 pointwise predictions after sparse personalization at the corresponding calibration fraction.
+anchor / *_anchor_mask,bool,Indicates whether a node belongs to the anchor set for the corresponding calibration fraction.
+local_ood_percentile_*,0–1,Percentile of local geometry-distance/OOD score relative to the calibrated development-support distribution.
+OOD95 / OOD99,bool,Flags nodes whose local geometry-shift percentile exceeds the corresponding threshold.
+truth / reference,target unit,FSI reference value for the same node.
+residual,transformed target unit,Reference-minus-prediction residual; used in V3 to calibrate empirical residual bands.
+interval_width / width_over_trainIQR,target unit / dimensionless,Width of the empirical residual band and the same width normalized by development target IQR.
+co_burden,0–1 percentile,"Minimum of the hemodynamic percentile and mechanical percentile, used as a descriptive multiphysics co-burden score."
+dominance_score,0–1,Fraction of points jointly dominated by the current point on both axes; a continuous Pareto-like descriptive score.
+pareto_front,bool,Membership indicator for the exact non-dominated Pareto front.
+runtime_s,s,Elapsed time recorded for the corresponding computational stage in the timing audit.
+method,text,"Comparison-method identifier such as prior+adapt, KNN, IDW, or RBF."

@@ -1,0 +1,9 @@
+﻿Order,Stage,Primary Inputs / Outputs,Purpose / Explanation
+P0,Geometry / FSI source,VMR VTP → ParaView STL → CATIA wall/lumen STEP → COMSOL,Creates the anatomy-specific computational geometry and FSI reference fields that are later exported to CSV.
+P1,Core FSI processed tables,Patient1–4 VectorResolved Hemodynamics + CycleResolved SolidMechanics,Canonical hemodynamic and wall-mechanical target tables used to construct downstream modeling datasets.
+P2,V1 geometry-only prior,P123_Training_Table + LOAO tables + P4 locked features/predictions,Builds 21 geometry-derived features; develops the prior on A1–A3; evaluates target-excluded zero-shot transfer on A4.
+P3,V2 sparse personalization,P123 personalization LOAO + P4 personalized metrics/predictions,Selects sparse representative anchors; applies Ridge affine correction and distance-weighted KNN residual correction; evaluates non-anchor nodes.
+P4,V3 diagnostics,"Uncertainty, OOD, Pareto/co-burden, master pointwise table","Adds development-calibrated empirical residual bands, geometry-support/OOD diagnostics, and multiphysics descriptive maps."
+P5,Reviewer controls,"Same-anchor KNN/IDW/RBF, hyperparameter sweep, nearest-anchor sensitivity, timing",Tests whether sparse-reconstruction gains require the cross-anatomy prior or can be explained by direct within-anatomy interpolation.
+P6,Sensitivity ablations,P13/P2-removal analyses and component ablations,Tests sensitivity to development-anatomy composition and to individual personalization components.
+P7,Paper-ready summaries,Main/Supplement table CSVs,Compact publication-ready tables derived from the analysis outputs.

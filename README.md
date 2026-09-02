@@ -20,6 +20,10 @@ Aortic-FSI-Sparse-Field-Completion/
 │   ├── freeze_manifest_pre_p4.json
 │   ├── personalization_protocol.json
 │   └── v3_manifest.json
+├── data/
+│   └── DigitalTwin_4Patient_Spreadsheet_Package/
+├── docs/
+│   └── model_files.md
 └── src/
     ├── stage01_train_zero_shot.py
     ├── stage02_personalize_sparse_anchors.py
@@ -64,6 +68,16 @@ Scripts assume mounted data under `/mnt/data` and use archived file names direct
 - `Patient4_CycleResolved_SolidMechanics_v2.csv`
 
 Several later stages also expect generated V1, V2, reviewer-loop, and archived derivative files already present under `/mnt/data`.
+
+## COMSOL Model Files
+
+Large COMSOL `.mph` model files are archived on Zenodo instead of committed to GitHub.
+
+- Zenodo draft record: <https://zenodo.org/deposit/22260376>
+- Public record URL after publication: <https://zenodo.org/records/22260376>
+- File manifest and checksums: [docs/model_files.md](docs/model_files.md)
+
+Download the model files from Zenodo and place them under local path `models/4Patient Models/` when needed. The `models/` directory is ignored by Git.
 
 ## Environment
 

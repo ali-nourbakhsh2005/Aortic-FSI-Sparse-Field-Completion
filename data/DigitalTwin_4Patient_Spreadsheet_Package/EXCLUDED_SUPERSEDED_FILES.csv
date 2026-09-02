@@ -1,0 +1,13 @@
+﻿Filename,Status,Reason,Original_Path,Size_MB
+Patient4_CycleResolved_SolidMechanics.csv,Superseded/Invalid,Old A4 solid-mechanics export with an incorrect row count; replaced by Patient4_CycleResolved_SolidMechanics_v2.csv.,/mnt/data/Patient4_CycleResolved_SolidMechanics.csv,31.1804
+Patient4_VM_Raw_TimeSeries.csv,Superseded/Invalid,Old A4 VM raw export; replaced by the corrected Patient4_VM_Raw_TimeSeries(1).csv.,/mnt/data/Patient4_VM_Raw_TimeSeries.csv,67.0576
+Patient4_VM_Timewise_Audit.csv,Superseded,Old audit tied to the superseded A4 VM export; replaced by Patient4_VM_Timewise_Audit_v2.csv.,/mnt/data/Patient4_VM_Timewise_Audit.csv,0.0003
+P4_Personalized_Predictions(1).csv,Duplicate,Exact duplicate of DigitalTwin_V2_Personalized/P4_Personalized_Predictions.csv.,/mnt/data/P4_Personalized_Predictions(1).csv,2.2417
+P4_PERSONALIZED_TEST_METRICS(2).csv,Duplicate,Exact duplicate of DigitalTwin_V2_Personalized/P4_PERSONALIZED_TEST_METRICS.csv.,/mnt/data/P4_PERSONALIZED_TEST_METRICS(2).csv,0.0034
+P4_DigitalTwin_Predictions(1).csv,Near-duplicate/copy,Loose root copy of the V1 A4 zero-shot predictions; the canonical folder version is included instead.,/mnt/data/P4_DigitalTwin_Predictions(1).csv,1.757
+test.csv,Scratch/Temporary,Temporary test/intermediate file; not part of the canonical final workflow.,/mnt/data/test.csv,1.2438
+test2.csv,Scratch/Temporary,Temporary test/intermediate file; not part of the canonical final workflow.,/mnt/data/test2.csv,1.5237
+test 3.csv,Scratch/Temporary,Temporary test/intermediate file; not part of the canonical final workflow.,/mnt/data/test 3.csv,0.6665
+test(1).csv,Scratch/Temporary,Temporary test/intermediate file; not part of the canonical final workflow.,/mnt/data/test(1).csv,0.7843
+dt_cv_tmp.csv,Scratch/Temporary,Temporary test/intermediate file; not part of the canonical final workflow.,/mnt/data/dt_cv_tmp.csv,0.0063
+dt_sel_tmp.csv,Scratch/Temporary,Temporary test/intermediate file; not part of the canonical final workflow.,/mnt/data/dt_sel_tmp.csv,0.0007
