@@ -107,9 +107,3 @@ python src/stage06_generate_figures.py
 python src/stage07_v3_uncertainty_ood_pareto.py
 python src/stage08_component_ablation.py
 ```
-
-## Notes
-
-- `stage07_v3_uncertainty_ood_pareto.py` and `stage08_component_ablation.py` are reconstructed reference implementations derived from archived manifests and recorded outputs.
-- Configuration JSON files are preserved as frozen protocol records, not rewritten analysis logic.
-- Source comments were removed intentionally to keep release tree compact; this README carries project-level documentation.
